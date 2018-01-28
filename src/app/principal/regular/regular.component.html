@@ -1,0 +1,26 @@
+<h2>Files</h2>
+<table class="wp-list-table widefat fixed">
+    <thead>
+        <tr>
+            <td class="manage-column column-primary">id</td>
+            <td class="manage-column column-primary">name</td>
+            <td class="manage-column column-primary">status</td>
+            <td class="manage-column column-primary">src</td>
+            <td class="manage-column column-primary">size</td>
+            <td class="manage-column column-primary">type</td>
+            <td class="manage-column column-primary">actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let regular of regulars">
+            <td>{{regular.id}}</td>
+            <td><a [attr.href]="regular.url" target="_blank">{{regular.name}}</a></td>
+            <td>{{regular.status}}</td>
+            <td>{{regular.src}}</td>
+            <td>{{regular.size}}</td>
+            <td>{{regular.type}}</td>
+            <td><button mat-icon-button (click)="delete(regular)" *ngIf="canDelete(regular)"><span class="dashicons dashicons-trash"></span></button></td>
+        </tr>
+    </tbody>
+</table>
+

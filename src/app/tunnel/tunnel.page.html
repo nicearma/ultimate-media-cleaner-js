@@ -1,0 +1,14 @@
+<p class="description">
+  It seem than it your first time using the plugin, because this plugin can be dangerous in bad hands, please read the
+  next information
+</p>
+<section>
+  <umc-warning *ngIf="status === 0"></umc-warning>
+  <umc-how-to-use *ngIf="status === 1"></umc-how-to-use>
+  <umc-options *ngIf="status === 2"></umc-options>
+  <umc-pro *ngIf="status === 3"></umc-pro>
+  <button class="button button-primary back" *ngIf="status > 0" (click)="backStatus()">Back</button>
+  <button class="button button-primary next" *ngIf="status < max" (click)="nextStatus()">Next</button>
+
+  <button class="button button-primary next" *ngIf="status === max" (click)="ready()">I'm ready</button>
+</section>

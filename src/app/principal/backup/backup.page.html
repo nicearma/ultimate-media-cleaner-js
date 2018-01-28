@@ -1,0 +1,6 @@
+
+<umc-backup-images *ngIf="haveSize(imageDirectory?.directories)" [directories]="imageDirectory?.directories"></umc-backup-images>
+
+<umc-backup-regulars *ngIf="haveSize(regularDirectory?.directories)" [directories]="regularDirectory?.directories"></umc-backup-regulars>
+
+<umc-backup-orphans *ngIf="haveSize(orphanDirectory?.directories)" [directories]="orphanDirectory?.directories"></umc-backup-orphans>

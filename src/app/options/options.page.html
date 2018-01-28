@@ -1,0 +1,113 @@
+<h2>Options</h2>
+<p class="description">
+  Configure your plugin
+</p>
+<div *ngIf="option">
+  <h3>Checks</h3>
+  <p class="description">
+    Every each of this option are useful to try to find used media files, but each one is expensive, so chose wisly
+  </p>
+  <table class="form-table">
+    <tbody>
+    <tr>
+      <th scope="row"><label for="umc-shortCode">Shortcodes</label></th>
+      <td>
+        <input type="checkbox" id="umc-shortCode" [(ngModel)]="option.check.shortCode" (ngModelChange)="onChanges()"/>
+        <p class="description">
+          Search media in shortcodes
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><label for="umc-excerpt">Excerpt</label></th>
+      <td>
+        <input type="checkbox" id="umc-excerpt" [(ngModel)]="option.check.excerpt" (ngModelChange)="onChanges()"/>
+        <p class="description">
+          Search media in excerpt post/page
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><label for="umc-postMeta">Postmeta</label></th>
+      <td>
+        <input type="checkbox" id="umc-postMeta" [(ngModel)]="option.check.postMeta" (ngModelChange)="onChanges()"/>
+        <p class="description">
+          Search media in postmeta (some plugins use this for save information about media)
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><label for="umc-draft">Draft</label></th>
+      <td>
+        <input type="checkbox" id="umc-draft" [(ngModel)]="option.check.draft" (ngModelChange)="onChanges()"/>
+        <p class="description">
+          Search media in draft page/post
+        </p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <h3>Show</h3>
+  <p class="description">
+    Chose what do you want to see in the result list
+  </p>
+  <table class="form-table">
+    <tbody>
+    <tr>
+      <th scope="row"><label for="umc-used">Used</label></th>
+      <td><input type="checkbox" id="umc-used" [(ngModel)]="option.show.used" (ngModelChange)="onChanges()"/>
+        <p class="description">
+          See used medias
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><label for="umc-show_ignore_list">Ignored List</label></th>
+      <td><input type="checkbox" id="umc-show_ignore_list" [(ngModel)]="option.show.ignoreList" (ngModelChange)="onChanges()"/>
+        <p class="description">
+          See ignored image size
+        </p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <h3>Ignore</h3>
+  <table class="form-table">
+    <tbody>
+    <tr>
+      <th scope="row"><label>Ignored List</label></th>
+      <td>
+        <ul>
+          <li *ngFor="let size of option.ignore.sizes">{{size}}</li>
+        </ul>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <h3>Backup</h3>
+  <p class="description">
+    Configure the basic backup system
+  </p>
+  <table class="form-table">
+    <tbody>
+    <tr>
+      <th scope="row"><label for="umc-folder">Folder</label></th>
+      <td><input readonly type="text" id="umc-folder" [(ngModel)]="option.backup.folder" (ngModelChange)="onChanges()">
+      </td>
+    </tr>
+    <tr *ngIf="!backupCreated">
+      <th scope="row"><label for="umc-folder">Folder status</label></th>
+      <td><span class="dashicons dashicons-portfolio" (click)="createBackup()"></span>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><label for="umc-active">Active</label></th>
+      <td><input type="checkbox" id="umc-active" [(ngModel)]="option.backup.active" (ngModelChange)="onChanges()"/>
+        <p class="description">
+          Backup the media file to be deleted
+        </p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

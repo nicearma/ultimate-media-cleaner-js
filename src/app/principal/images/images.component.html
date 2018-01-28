@@ -1,0 +1,47 @@
+<h2>Images</h2>
+<table class="wp-list-table widefat fixed">
+  <thead>
+  <tr>
+    <td class="manage-column column-primary">id</td>
+    <td class="manage-column column-primary">name</td>
+    <td class="manage-column column-primary">status</td>
+    <td class="manage-column column-primary">src</td>
+    <td class="manage-column column-primary">size</td>
+    <td class="manage-column column-primary">size name</td>
+    <td class="manage-column column-primary">resolution</td>
+    <td class="manage-column column-primary">type</td>
+    <td class="manage-column column-primary">actions</td>
+  </tr>
+  </thead>
+  <tbody *ngFor="let image of images">
+  <tr>
+    <td>{{image.id}}</td>
+    <td><a [attr.href]="image.url" target="_blank">{{image.name}}</a></td>
+    <td>{{image.status}}</td>
+    <td>{{image.src}}</td>
+    <td>{{image.size}}</td>
+    <td><umc-ignore [value]="image.sizeName" [type]="'ignore.sizes'">{{image.sizeName}}</umc-ignore></td>
+    <td>{{image.width}} x {{image.height}}</td>
+    <td>{{image.type}}</td>
+    <td>
+      <button mat-icon-button (click)="delete(image)" *ngIf="canDelete(image)"><span
+        class="dashicons dashicons-trash"></span></button>
+    </td>
+  </tr>
+  <tr *ngFor="let imageSize of getImageSizes(image.sizes)">
+    <td></td>
+    <td><a [attr.href]="imageSize.url" target="_blank">{{imageSize.name}}</a></td>
+    <td>{{imageSize.status}}</td>
+    <td>{{imageSize.src}}</td>
+    <td>{{imageSize.size}}</td>
+    <td><umc-ignore [value]="imageSize.sizeName" [type]="'ignore.sizes'">{{imageSize.sizeName}}</umc-ignore></td>
+    <td>{{imageSize.width}} x {{imageSize.height}}</td>
+    <td>{{imageSize.type}}</td>
+    <td>
+      <button mat-icon-button (click)="deleteSize(imageSize)" *ngIf="canDeleteSize(image, imageSize)"><span
+        class="dashicons dashicons-trash"></span></button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

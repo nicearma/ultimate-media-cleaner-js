@@ -1,0 +1,27 @@
+<h2>Files</h2>
+<p>Find any file in the database</p>
+<div *ngIf="text">
+  <umc-waiting [text]=""></umc-waiting>
+</div>
+<div *ngIf="haveFiles()">
+
+  <h4>Pagination</h4>
+
+  <mat-paginator [length]="count"
+                 [pageSize]="size"
+                 [pageSizeOptions]="sizeOptions"
+                 (page)="changePage($event)">
+  </mat-paginator>
+
+  <umc-images *ngIf="haveImages()" [images]="files.images"></umc-images>
+  <umc-regular *ngIf="haveRegulars()" [regulars]="files.regulars"></umc-regular>
+
+  <h4>Pagination</h4>
+
+  <mat-paginator [length]="count"
+                 [pageSize]="size"
+                 [pageIndex]="page"
+                 [pageSizeOptions]="sizeOptions"
+                 (page)="changePage($event)">
+  </mat-paginator>
+</div>

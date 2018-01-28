@@ -1,0 +1,19 @@
+<h2>Images</h2>
+<table class="wp-list-table widefat fixed">
+  <thead>
+  <tr>
+    <td class="manage-column column-primary">id</td>
+    <td class="manage-column column-primary">restore</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let directory of directories">
+    <td>{{directory}}</td>
+    <td>
+      <span (click)="restore(directory)" class="dashicons dashicons-download"></span>
+      <span (click)="delete(directory)" class="dashicons dashicons-no"></span>
+    </td>
+  </tr>
+
+  </tbody>
+</table>

@@ -1,0 +1,24 @@
+<h2>Orphans</h2>
+<table class="wp-list-table widefat fixed">
+  <thead>
+  <tr>
+    <td class="manage-column column-primary">name</td>
+    <td class="manage-column column-primary">status</td>
+    <td class="manage-column column-primary">src</td>
+    <td class="manage-column column-primary">size</td>
+    <td class="manage-column column-primary">type</td>
+    <td class="manage-column column-primary">actions</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let orphan of orphans">
+    <td><a [attr.href]="orphan.url" target="_blank">{{orphan.name}}</a></td>
+    <td>{{orphan.status}}</td>
+    <td>{{orphan.src}}</td>
+    <td>{{orphan.size}}</td>
+    <td>{{orphan.type}}</td>
+    <td><button mat-icon-button (click)="delete(orphan)" *ngIf="canDelete(orphan)"><span class="dashicons dashicons-trash"></span></button></td>
+  </tr>
+  </tbody>
+</table>
+

@@ -1,6 +1,6 @@
 import { UcmPage } from './app.po';
 
-describe('ucm App', () => {
+describe('umc App', () => {
   let page: UcmPage;
 
   beforeEach(() => {

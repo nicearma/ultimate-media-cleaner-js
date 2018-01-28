@@ -1,0 +1,22 @@
+<div id="menu">
+  <section *ngIf="!complete">
+    <button class="button button-primary button-large" (click)="startAction()">Start cleaning</button>
+    <mat-progress-bar
+      mode="determinate"
+      [value]="progress">
+    </mat-progress-bar>
+  </section>
+
+  <ul class="subsubsub" *ngIf="complete">
+    <li><a routerLink="/principal/directories" class="current">Directories</a> |</li>
+    <li><a routerLink="/principal/files" class="current">Files</a> |</li>
+    <li><a routerLink="/principal/backups" class="current">Backups</a> |</li>
+    <li><a routerLink="/principal/options" class="current">Options</a></li>
+  </ul>
+</div>
+<div class="clear"></div>
+<div id="route">
+  <router-outlet></router-outlet>
+</div>
+
+

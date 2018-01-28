@@ -1,0 +1,15 @@
+<h2>Directories</h2>
+<p>Find any file at any folder</p>
+
+<umc-directories-directory (onDirectoryChanged)="directoryChange($event)"></umc-directories-directory>
+
+<div *ngIf="text">
+  <umc-waiting [text]=""></umc-waiting>
+</div>
+
+<div *ngIf="haveFiles()">
+  <umc-images *ngIf="haveImages()" [images]="files.images"></umc-images>
+  <umc-regular *ngIf="haveRegulars()"  [regulars]="files.regulars"></umc-regular>
+  <umc-orphans *ngIf="haveOrphans()" [orphans]="files.orphans"></umc-orphans>
+</div>
+

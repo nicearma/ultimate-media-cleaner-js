@@ -1,0 +1,5 @@
+<label>Select your directory: </label>
+<select (change)="directoryChange($event.target.value)">
+  <option value="">Select one</option>
+  <option *ngFor="let dir of directory?.directories" [value]="dir">{{ dir }}</option>
+</select>

@@ -18,10 +18,6 @@
       "rxjs"
     ],
     "import-spacing": true,
-    "indent": [
-      true,
-      "spaces"
-    ],
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [
@@ -110,13 +106,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "umc",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "umc",
       "kebab-case"
     ],
     "use-input-property-decorator": true,
